@@ -21,7 +21,7 @@ export const Logo = ({ className = "", size = 'sm', showText = true }: LogoProps
     <div className={`flex items-center gap-3 ${className}`}>
       <div className={`relative ${currentSize.icon} flex-shrink-0`}>
         <Image
-          src="/hey2.png"
+          src="/hey3.png"
           alt="OcassionOrbit Logo"
           width={400}
           height={400}
