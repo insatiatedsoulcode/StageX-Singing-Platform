@@ -6,14 +6,12 @@ import { ProductShowcase } from '@/components/ProductShowcase';
 import { HowItWorks } from '@/components/HowItWorks';
 import { CTASection } from '@/components/CTASection';
 import { Footer } from '@/components/Footer';
-import { LeadCaptureModal } from '@/components/LeadCaptureModal';
 import { SocialHub } from '@/components/SocialHub';
 import { BookingModal } from '@/components/BookingModal';
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-brand-bg text-white selection:bg-brand-purple/30">
-      <LeadCaptureModal />
       <BookingModal />
       <Navbar />
       

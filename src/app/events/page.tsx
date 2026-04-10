@@ -18,7 +18,7 @@ const artists = [
 
 export default function EventsPage() {
   return (
-    <div className="min-h-screen bg-brand-bg text-white selection:bg-brand-violet/30">
+    <div className="min-h-screen bg-brand-bg text-white selection:bg-brand-purple/30">
       <Navbar />
       
       <main className="pt-32 pb-20">
@@ -29,23 +29,23 @@ export default function EventsPage() {
               animate={{ opacity: 1, x: 0 }}
               className="text-5xl md:text-7xl font-black uppercase tracking-tighter italic mb-6"
             >
-              Discover <span className="text-brand-violet not-italic">Stages</span>
+              Discover <span className="text-brand-purple not-italic">Orbits</span>
             </motion.h1>
             
             <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
               <div className="relative w-full md:w-96 group">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 group-focus-within:text-brand-violet transition-colors" size={20} />
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 group-focus-within:text-brand-purple transition-colors" size={20} />
                 <input
                   type="text"
                   placeholder="Search artists or genres..."
-                  className="w-full pl-12 pr-6 py-4 glass-card rounded-xl outline-none border-transparent focus:border-brand-violet/50 transition-all text-sm"
+                  className="w-full pl-12 pr-6 py-4 glass-card rounded-xl outline-none border-transparent focus:border-brand-purple/50 transition-all text-sm"
                 />
               </div>
               <div className="flex gap-4 w-full md:w-auto overflow-x-auto pb-2 md:pb-0">
                 {['All', 'Live', 'Upcoming', 'Electronic', 'Acoustic'].map((tag) => (
                   <button
                     key={tag}
-                    className="px-6 py-2 rounded-full glass border border-white/5 text-xs font-black uppercase tracking-widest hover:border-brand-violet/50 hover:text-brand-violet transition-all whitespace-nowrap"
+                    className="px-6 py-2 rounded-full glass border border-white/5 text-xs font-black uppercase tracking-widest hover:border-brand-purple/50 hover:text-brand-purple transition-all whitespace-nowrap"
                   >
                     {tag}
                   </button>
@@ -74,7 +74,7 @@ export default function EventsPage() {
           >
             <h2 className="text-3xl font-black uppercase tracking-tighter text-white/40 mb-4">You&apos;ve reached the edge</h2>
             <p className="text-white/20 text-sm font-bold uppercase tracking-widest leading-loose max-w-lg mx-auto">
-              More artists and stages are connecting every second. Join the waitlist to get notified of the next major drop.
+              More artists and orbits are connecting every second. Join the waitlist to get notified of the next major drop.
             </p>
           </motion.div>
         </div>

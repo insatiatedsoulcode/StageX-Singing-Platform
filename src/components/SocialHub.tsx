@@ -8,35 +8,35 @@ import { InstagramIcon, XIcon, DiscordIcon, YoutubeIcon } from './SocialIcons';
 const socialCards = [
   {
     name: 'Instagram',
-    handle: '@StageX_Live',
+    handle: '@OcassionOrbit',
     icon: InstagramIcon,
-    color: 'hover:text-pink-500',
-    glow: 'group-hover:bg-pink-500/20',
-    description: 'Cinematic highlights and vocal deep dives.',
+    color: 'hover:text-brand-purple',
+    glow: 'group-hover:bg-brand-purple/20',
+    description: 'Cinematic highlights of global event connectivity.',
   },
   {
     name: 'Discord',
-    handle: 'Join StageX HQ',
+    handle: 'Join Orbit HQ',
     icon: DiscordIcon,
-    color: 'hover:text-brand-violet',
-    glow: 'group-hover:bg-brand-violet/20',
-    description: 'The greenroom for the global artist community.',
+    color: 'hover:text-brand-gold',
+    glow: 'group-hover:bg-brand-gold/20',
+    description: 'The greenroom for the global event community.',
   },
   {
     name: 'YouTube',
-    handle: 'StageX Originals',
+    handle: 'Orbit Originals',
     icon: YoutubeIcon,
     color: 'hover:text-red-500',
     glow: 'group-hover:bg-red-500/20',
-    description: '4K live performances and engine masterclasses.',
+    description: '4K live captures and orchestration masterclasses.',
   },
   {
     name: 'X (Twitter)',
-    handle: '@StageX_Engine',
+    handle: '@Ocassion_Orbit',
     icon: XIcon,
-    color: 'hover:text-blue-400',
-    glow: 'group-hover:bg-blue-400/20',
-    description: 'Real-time updates and signal optimizations.',
+    color: 'hover:text-brand-gold',
+    glow: 'group-hover:bg-brand-gold/20',
+    description: 'Real-time updates and orbital optimizations.',
   }
 ];
 
@@ -44,7 +44,7 @@ export const SocialHub = () => {
   return (
     <section className="py-24 bg-[#050810] relative overflow-hidden">
       {/* Background Ambience */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-violet/5 rounded-full blur-[120px] -mr-64 -mt-64" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-purple/5 rounded-full blur-[120px] -mr-64 -mt-64" />
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-8">
@@ -55,8 +55,8 @@ export const SocialHub = () => {
               viewport={{ once: true }}
               className="flex items-center gap-2 mb-4"
             >
-              <div className="w-8 h-[1px] bg-brand-violet" />
-              <span className="text-brand-violet font-black uppercase tracking-[0.3em] text-[10px]">Connected Circuit</span>
+              <div className="w-8 h-[1px] bg-brand-gold" />
+              <span className="text-brand-gold font-black uppercase tracking-[0.3em] text-[10px]">Connected Circuit</span>
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -64,7 +64,7 @@ export const SocialHub = () => {
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-black italic uppercase tracking-tighter"
             >
-              The Stage <span className="text-white/20">Never Sleeps.</span>
+              The Orbit <span className="text-white/20">Never Sleeps.</span>
             </motion.h2>
           </div>
           <motion.p
@@ -73,7 +73,7 @@ export const SocialHub = () => {
             viewport={{ once: true }}
             className="text-white/40 max-w-sm text-sm font-medium leading-relaxed"
           >
-            Connect with thousands of artists and vocal engineers. 
+            Connect with thousands of artists and orchestration engineers. 
             Real-time collaboration across the global signal.
           </motion.p>
         </div>

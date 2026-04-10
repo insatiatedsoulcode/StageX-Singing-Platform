@@ -1,13 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-bg: #0F0717;
-  --color-brand-violet: #DCB8FF;
-  --color-brand-cyan: #00D1FF;
-  --color-brand-gold: #FFD700;
+  --color-brand-bg: #050810;
+  --color-brand-purple: #8B5CF6;
+  --color-brand-purple-light: #C084FC;
+  --color-brand-gold: #D4AF37;
+  --color-brand-gold-muted: #B8860B;
   
   --color-glass-white: rgba(255, 255, 255, 0.05);
-  --color-glass-purple: rgba(168, 85, 247, 0.1);
+  --color-glass-purple: rgba(123, 44, 191, 0.1);
+  
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-inter);
   
   --animate-glow: glow 4s ease-in-out infinite alternate;
   --animate-pulse-live: pulse-live 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -38,11 +42,11 @@ body {
 
 @layer utilities {
   .glass {
-    background-color: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.5);
+    background-color: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
   }
   
   .glass-card {
@@ -55,18 +59,26 @@ body {
   }
   
   .glass-card:hover {
-    border-color: rgba(220, 184, 255, 0.3);
+    border-color: rgba(123, 44, 191, 0.3);
     background-color: rgba(255, 255, 255, 0.05);
     transform: translateY(-4px) scale(1.01);
-    box-shadow: 0 12px 40px -10px rgba(0,0,0,0.6), 0 0 20px rgba(220, 184, 255, 0.1);
+    box-shadow: 0 12px 40px -10px rgba(0,0,0,0.6), 0 0 20px rgba(123, 44, 191, 0.15);
   }
   
-  .neon-glow-violet {
-    box-shadow: 0 0 20px rgba(220, 184, 255, 0.4);
+  .neon-glow-purple {
+    box-shadow: 0 0 20px rgba(123, 44, 191, 0.4);
+  }
+
+  .neon-glow-gold {
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
   }
 
   .text-glow {
-    text-shadow: 0 0 15px rgba(220, 184, 255, 0.5);
+    text-shadow: 0 0 15px rgba(123, 44, 191, 0.5);
+  }
+
+  .text-glow-gold {
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
   }
 
   .bento-grid {

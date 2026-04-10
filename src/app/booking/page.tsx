@@ -5,7 +5,7 @@ import { BookingForm } from '@/components/BookingForm';
 
 export default function BookingPage() {
   return (
-    <div className="min-h-screen bg-brand-bg text-white selection:bg-brand-violet/30 overflow-x-hidden">
+    <div className="min-h-screen bg-brand-bg text-white selection:bg-brand-purple/30 overflow-x-hidden">
       <Navbar />
 
       <main className="pt-32 pb-20">

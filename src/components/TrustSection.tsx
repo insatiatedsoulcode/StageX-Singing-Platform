@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const logos = [
-  'Sonic Records', 'Bass Layer', 'Vocal Labs', 'Beat Portal', 'Synth Collective', 'Cloud Stage'
+  'Sonic Orbit', 'Bass Sync', 'Orbital Flux', 'Beat Nexus', 'Pulse Collective', 'Cloud Arena'
 ];
 
 export const TrustSection = () => {
@@ -25,7 +25,7 @@ export const TrustSection = () => {
                transition={{ delay: index * 0.1 }}
                className="flex justify-center"
              >
-               <span className="text-sm font-black text-white/60 hover:text-brand-violet transition-colors cursor-default uppercase tracking-tighter italic">
+               <span className="text-sm font-black text-white/60 hover:text-brand-purple transition-colors cursor-default uppercase tracking-tighter italic">
                  {logo}
                </span>
              </motion.div>
@@ -35,8 +35,8 @@ export const TrustSection = () => {
         <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
            {[
              { label: '<5ms', sub: 'SYNC LATENCY' },
-             { label: '1M+', sub: 'GLOBAL PERFORMERS' },
-             { label: '4K+', sub: 'VIRTUAL STAGES' }
+             { label: '1M+', sub: 'ORBITAL ARTISTS' },
+             { label: '4K+', sub: 'ORBITAL TERMINALS' }
            ].map((stat, index) => (
              <motion.div
                key={index}

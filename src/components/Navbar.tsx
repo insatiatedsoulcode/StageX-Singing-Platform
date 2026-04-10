@@ -34,20 +34,20 @@ export const Navbar = () => {
       <div className="container mx-auto px-6 relative flex items-center justify-between">
         {/* Logo - Far Left */}
         <Link href="/" className="relative z-10">
-          <Logo />
+          <Logo size="md" />
         </Link>
 
         {/* Centered Pill Menu */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:block">
-          <div className="glass px-1 py-1 rounded-full border border-white/10 backdrop-blur-xl flex items-center gap-1">
+          <div className="glass px-1.5 py-1.5 rounded-full flex items-center gap-1 shadow-[0_0_20px_rgba(0,0,0,0.3)]">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`px-6 py-2 rounded-full text-[11px] font-black uppercase tracking-[0.2em] transition-all ${
+                className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.25em] transition-all duration-300 ${
                   link.name === 'Home' 
-                    ? 'bg-white/10 text-white' 
-                    : 'text-white/40 hover:text-white hover:bg-white/5'
+                    ? 'bg-brand-gold text-black shadow-[0_0_15px_rgba(212,175,55,0.3)]' 
+                    : 'text-white/50 hover:text-white hover:bg-white/5'
                 }`}
               >
                 {link.name}
@@ -58,11 +58,11 @@ export const Navbar = () => {
 
         {/* Action Button - Far Right */}
         <div className="hidden md:flex items-center gap-6 relative z-10">
-          <Link href="#" className="text-white/40 hover:text-brand-violet transition-colors">
+          <Link href="#" className="text-white/40 hover:text-brand-gold transition-colors">
             <DiscordIcon className="w-5 h-5" />
           </Link>
-          <Button size="sm" className="rounded-full px-8 py-5 text-[10px] uppercase font-black tracking-widest">
-            Book Stage
+          <Button size="sm" className="rounded-full px-8 py-5 text-[10px] uppercase font-black tracking-widest bg-brand-gold text-black hover:bg-white border-none">
+            Join Orbit
           </Button>
         </div>
 

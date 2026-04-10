@@ -36,7 +36,7 @@ export const Preloader = () => {
               scale: [0.8, 1.2, 1],
             }}
             transition={{ duration: 2.5, ease: "easeOut" }}
-            className="absolute w-[500px] h-[500px] bg-brand-violet/10 rounded-full blur-[120px]"
+            className="absolute w-[500px] h-[500px] bg-brand-purple/10 rounded-full blur-[120px]"
           />
 
           <div className="relative flex flex-col items-center">
@@ -52,7 +52,7 @@ export const Preloader = () => {
                 ease: "circOut",
               }}
             >
-              <Logo className="scale-[2.5]" />
+              <Logo size="lg" />
             </motion.div>
 
             {/* Scanning Line Effect */}
@@ -60,7 +60,7 @@ export const Preloader = () => {
               initial={{ top: "-100%" }}
               animate={{ top: "200%" }}
               transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-              className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/30 to-transparent z-20"
+              className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent z-20"
             />
 
             <motion.div
@@ -82,12 +82,12 @@ export const Preloader = () => {
                       repeat: Infinity, 
                       delay: i * 0.15 
                     }}
-                    className="w-1 h-6 bg-brand-violet rounded-full"
+                    className="w-1 h-6 bg-brand-purple rounded-full"
                   />
                 ))}
               </div>
               <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/30 animate-pulse">
-                Calibrating Stage Terminal
+                Calibrating Orbital Terminal
               </span>
             </motion.div>
           </div>

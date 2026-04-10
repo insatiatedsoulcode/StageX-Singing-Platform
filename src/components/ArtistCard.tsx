@@ -25,8 +25,8 @@ export const ArtistCard = ({ name, genre, stats, isLive }: ArtistCardProps) => {
         )}
       </div>
 
-      <div className="w-full aspect-square rounded-xl bg-gradient-to-br from-brand-violet/20 to-brand-cyan/10 mb-6 flex items-center justify-center group-hover:from-brand-violet/30 group-hover:to-brand-cyan/20 transition-all border border-white/5 relative overflow-hidden">
-         <Mic2 className="w-16 h-16 text-brand-violet/40 group-hover:scale-110 transition-transform" />
+      <div className="w-full aspect-square rounded-xl bg-gradient-to-br from-brand-purple/20 to-brand-gold/10 mb-6 flex items-center justify-center group-hover:from-brand-purple/30 group-hover:to-brand-gold/20 transition-all border border-white/5 relative overflow-hidden">
+         <Mic2 className="w-16 h-16 text-brand-purple/40 group-hover:scale-110 transition-transform" />
          <div className="absolute inset-0 bg-gradient-to-t from-brand-bg/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
             <div className="w-10 h-10 rounded-full glass flex items-center justify-center">
                <Play className="w-4 h-4 text-white fill-white" />
@@ -36,8 +36,8 @@ export const ArtistCard = ({ name, genre, stats, isLive }: ArtistCardProps) => {
 
       <div className="space-y-4">
          <div>
-            <div className="text-white font-black text-2xl uppercase tracking-tighter group-hover:text-brand-violet transition-colors">{name}</div>
-            <div className="text-brand-cyan text-xs font-bold uppercase tracking-widest">{genre}</div>
+            <div className="text-white font-black text-2xl uppercase tracking-tighter group-hover:text-brand-purple transition-colors">{name}</div>
+            <div className="text-brand-gold text-xs font-bold uppercase tracking-widest">{genre}</div>
          </div>
 
          <div className="flex items-center justify-between pt-4 border-t border-white/5">

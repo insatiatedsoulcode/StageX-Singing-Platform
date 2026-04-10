@@ -7,21 +7,21 @@ import { Layout, Link2, Mic2 } from 'lucide-react';
 const steps = [
   {
     icon: Layout,
-    title: 'Select Your Stage',
+    title: 'Select Your Orbit',
     description: 'Choose from a variety of virtual and physical venues tailored for your performance style.',
-    color: 'bg-brand-violet'
+    color: 'bg-brand-purple'
   },
   {
     icon: Link2,
-    title: 'Link Your Voice',
-    description: 'Connect your interface and calibrate your vocal signature with our AI-driven neural bridge.',
-    color: 'bg-brand-cyan'
+    title: 'Sync Your Voice',
+    description: 'Connect your interface and calibrate your orbital signature with our AI-driven neural bridge.',
+    color: 'bg-brand-gold'
   },
   {
     icon: Mic2,
     title: 'Perform Live',
     description: 'Broadcast to a global audience with sub-5ms latency and full immersive stage effects.',
-    color: 'bg-brand-violet'
+    color: 'bg-brand-purple'
   }
 ];
 
@@ -31,7 +31,7 @@ export const HowItWorks = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-24">
           <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter italic text-white mb-6">
-            The Performance <span className="text-brand-violet not-italic">Loop</span>
+            The Performance <span className="text-brand-purple not-italic">Loop</span>
           </h2>
           <p className="text-white/40 max-w-2xl mx-auto text-xs font-bold uppercase tracking-[0.2em] leading-loose">
             A seamless journey from initial registration to your first global headline performance.
@@ -40,7 +40,7 @@ export const HowItWorks = () => {
 
         <div className="max-w-4xl mx-auto relative">
           {/* Vertical Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-violet via-brand-cyan to-transparent hidden md:block" />
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-purple via-brand-gold to-transparent hidden md:block" />
 
           <div className="space-y-24">
             {steps.map((step, index) => (

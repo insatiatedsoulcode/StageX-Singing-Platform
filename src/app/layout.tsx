@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 import { Preloader } from "@/components/Preloader";
@@ -14,9 +14,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
-  title: "StageX | The Electric Stage",
-  description: "Global vocal performance platform. Connect, perform, and broadcast your voice to the world.",
+  title: "OcassionOrbit | Events. Connected. Beyond.",
+  description: "Advanced event orchestration and connectivity platform. Beyond live performance, we connect worlds.",
 };
 
 export default function RootLayout({
@@ -27,7 +32,8 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-brand-bg">
         <Preloader />

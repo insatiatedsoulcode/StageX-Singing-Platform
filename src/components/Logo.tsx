@@ -1,52 +1,45 @@
 import React from 'react';
+import Image from 'next/image';
 
-export const Logo = ({ className = "" }: { className?: string }) => {
+interface LogoProps {
+  className?: string;
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  showText?: boolean;
+}
+
+export const Logo = ({ className = "", size = 'sm', showText = true }: LogoProps) => {
+  const sizes = {
+    sm: { icon: "w-8 h-8", text: "text-lg", sub: "text-[6px]" },
+    md: { icon: "w-12 h-12", text: "text-2xl", sub: "text-[8px]" },
+    lg: { icon: "w-24 h-24", text: "text-4xl", sub: "text-[12px]" },
+    xl: { icon: "w-40 h-40", text: "text-6xl", sub: "text-[16px]" }
+  };
+
+  const currentSize = sizes[size];
+
   return (
-    <div className={`flex items-center gap-2 ${className}`}>
-      <svg
-        width="40"
-        height="40"
-        viewBox="0 0 100 100"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="drop-shadow-[0_0_12px_rgba(220,184,255,0.6)]"
-      >
-        <defs>
-          <linearGradient id="violetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#DCB8FF" />
-            <stop offset="100%" stopColor="#A855F7" />
-          </linearGradient>
-          <linearGradient id="silverRing" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#ffffff" />
-            <stop offset="50%" stopColor="#DCB8FF" />
-            <stop offset="100%" stopColor="#ffffff" />
-          </linearGradient>
-        </defs>
-        
-        {/* The 'O' Core */}
-        <circle
-          cx="50"
-          cy="50"
-          r="32"
-          stroke="url(#violetGrad)"
-          strokeWidth="10"
+    <div className={`flex items-center gap-3 ${className}`}>
+      <div className={`relative ${currentSize.icon} flex-shrink-0`}>
+        <Image
+          src="/hey2.png"
+          alt="OcassionOrbit Logo"
+          width={400}
+          height={400}
+          className="w-full h-full object-contain drop-shadow-[0_0_25px_rgba(139,92,246,0.3)]"
+          priority
         />
-        
-        {/* The Orbiting Electric Ring */}
-        <path
-          d="M15 50C15 50 35 85 85 40"
-          stroke="url(#silverRing)"
-          strokeWidth="3"
-          strokeLinecap="round"
-          className="animate-pulse"
-        />
-        
-        {/* Sparkle */}
-        <circle cx="85" cy="40" r="1.5" fill="#ffffff" />
-      </svg>
-      <span className="text-2xl font-black tracking-tighter text-white uppercase italic">
-        Stage<span className="text-brand-violet not-italic">X</span>
-      </span>
+      </div>
+
+      {showText && (
+        <div className="flex flex-col">
+          <h1 className={`${currentSize.text} font-serif font-medium tracking-tight text-brand-gold leading-[0.8]`}>
+            OcassionOrbit
+          </h1>
+          <p className={`${currentSize.sub} font-sans font-bold tracking-[0.4em] text-white/30 uppercase mt-2`}>
+            Events. Connected. Beyond.
+          </p>
+        </div>
+      )}
     </div>
   );
 };

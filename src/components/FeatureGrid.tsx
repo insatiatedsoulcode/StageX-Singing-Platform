@@ -14,15 +14,15 @@ import {
 const features = [
   {
     icon: Mic2,
-    title: 'Vocal Intelligence',
-    description: 'AI-driven vocal analysis that optimizes your pitch and tone in real-time.',
-    color: 'text-brand-violet'
+    title: 'Orbital Sync',
+    description: 'AI-driven orbital analysis that synchronizes your pitch and tone in real-time across the orbit.',
+    color: 'text-brand-purple'
   },
   {
     icon: Activity,
     title: 'Live FX Stacking',
     description: 'Studio-grade effects modules directly from your performance interface.',
-    color: 'text-brand-cyan'
+    color: 'text-brand-gold'
   },
   {
     icon: Globe,
@@ -34,7 +34,7 @@ const features = [
     icon: Music2,
     title: 'Dynamic Multi-Track',
     description: 'Collaborate with instrumentalists globally with zero-latency sync.',
-    color: 'text-brand-violet'
+    color: 'text-brand-purple'
   },
   {
     icon: Headphones,
@@ -46,7 +46,7 @@ const features = [
     icon: Cpu,
     title: 'Neural Mixing',
     description: 'Automated engineer that balances your levels during live sets.',
-    color: 'text-brand-cyan'
+    color: 'text-brand-gold'
   }
 ];
 
@@ -56,7 +56,7 @@ export const FeatureGrid = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter italic text-white mb-6">
-            Engineered for <span className="text-brand-violet not-italic">Vocalists</span>
+            Engineered for <span className="text-brand-purple not-italic">Artists</span>
           </h2>
           <p className="text-white/40 max-w-2xl mx-auto text-xs font-bold uppercase tracking-[0.2em] leading-loose">
             Everything you need to broadcast, record, and perform at the highest professional level.

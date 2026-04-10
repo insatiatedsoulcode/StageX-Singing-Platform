@@ -11,12 +11,12 @@ export const BookingModal = () => {
   useEffect(() => {
     // Show after the logo loader finishes (~3.5-4s delay)
     // Also skip if already seen in this session
-    const hasSeenBooking = sessionStorage.getItem('stagex_booking_seen');
+    const hasSeenBooking = sessionStorage.getItem('ocassionorbit_booking_seen');
     
     if (!hasSeenBooking) {
       const timer = setTimeout(() => {
         setIsOpen(true);
-      }, 3800); // Trigger right after preloader exit
+      }, 4500); // Increased delay for smoother post-preloader transition
       
       return () => clearTimeout(timer);
     }
@@ -24,7 +24,7 @@ export const BookingModal = () => {
 
   const handleClose = () => {
     setIsOpen(false);
-    sessionStorage.setItem('stagex_booking_seen', 'true');
+    sessionStorage.setItem('ocassionorbit_booking_seen', 'true');
   };
 
   return (
@@ -45,7 +45,7 @@ export const BookingModal = () => {
             initial={{ opacity: 0, scale: 0.9, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 30 }}
-            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto glass-card border-brand-violet/20 shadow-[0_0_80px_rgba(157,78,221,0.2)]"
+            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto glass-card border-brand-gold/20 shadow-[0_0_80px_rgba(212,175,55,0.2)]"
           >
             {/* Close Button */}
             <button
