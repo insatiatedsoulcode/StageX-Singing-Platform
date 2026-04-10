@@ -13,8 +13,10 @@ export const LeadCaptureModal = () => {
   useEffect(() => {
     // Check if user has already seen the modal in this session
     const hasSeenModal = sessionStorage.getItem('stagex_lead_seen');
+    const isHomePage = window.location.pathname === '/';
     
-    if (!hasSeenModal) {
+    // Prioritize Booking Modal on Home Page per user mandatory request
+    if (!hasSeenModal && !isHomePage) {
       const timer = setTimeout(() => {
         setIsOpen(true);
       }, 3000); // 3-second delay for better UX

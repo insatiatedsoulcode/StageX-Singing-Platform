@@ -1,6 +1,6 @@
 import React from 'react';
 import { Logo } from './Logo';
-import { Globe, Cpu, Send, Mail } from 'lucide-react';
+import { InstagramIcon, XIcon, DiscordIcon, YoutubeIcon } from './SocialIcons';
 import Link from 'next/link';
 
 export const Footer = () => {
@@ -22,17 +22,17 @@ export const Footer = () => {
               Designed for artists, built for the future of live music.
             </p>
             <div className="flex items-center gap-4 pt-2">
-              <Link href="#" className="p-2 glass rounded-lg text-white/40 hover:text-brand-violet hover:border-brand-violet/50 transition-all">
-                <Send className="w-5 h-5" />
+              <Link href="#" className="p-2 glass rounded-lg text-white/40 hover:text-pink-500 hover:border-pink-500/50 transition-all group">
+                <InstagramIcon className="w-5 h-5" />
               </Link>
-              <Link href="#" className="p-2 glass rounded-lg text-white/40 hover:text-brand-violet hover:border-brand-violet/50 transition-all">
-                <Cpu className="w-5 h-5" />
+              <Link href="#" className="p-2 glass rounded-lg text-white/40 hover:text-brand-violet hover:border-brand-violet/50 transition-all group">
+                <DiscordIcon className="w-5 h-5" />
               </Link>
-              <Link href="#" className="p-2 glass rounded-lg text-white/40 hover:text-brand-violet hover:border-brand-violet/50 transition-all">
-                <Globe className="w-5 h-5" />
+              <Link href="#" className="p-2 glass rounded-lg text-white/40 hover:text-red-500 hover:border-red-500/50 transition-all group">
+                <YoutubeIcon className="w-5 h-5" />
               </Link>
-              <Link href="#" className="p-2 glass rounded-lg text-white/40 hover:text-brand-violet hover:border-brand-violet/50 transition-all">
-                <Mail className="w-5 h-5" />
+              <Link href="#" className="p-2 glass rounded-lg text-white/40 hover:text-blue-400 hover:border-blue-400/50 transition-all group">
+                <XIcon className="w-5 h-5" />
               </Link>
             </div>
           </div>
