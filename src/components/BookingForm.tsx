@@ -16,6 +16,8 @@ import {
   Phone
 } from 'lucide-react';
 import { Button } from './Button';
+import { WhatsAppIcon } from './SocialIcons';
+import { performerInquiryLink } from '@/lib/contact';
 
 const steps = [
   { id: 1, title: 'Identity' },
@@ -49,7 +51,10 @@ export const BookingForm = () => {
   const nextStep = () => setCurrentStep((prev) => Math.min(prev + 1, 4));
   const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 1));
 
+  // Opening inside the click handler keeps this a user-initiated navigation, so
+  // popup blockers leave it alone. The visitor still presses send in WhatsApp.
   const handleSubmit = () => {
+    window.open(performerInquiryLink(formData), '_blank', 'noopener,noreferrer');
     setIsSubmitted(true);
   };
 
@@ -327,11 +332,12 @@ export const BookingForm = () => {
                   <ChevronRight size={16} />
                 </Button>
               ) : (
-                <Button 
-                  onClick={handleSubmit} 
-                  className="bg-gradient-to-r from-[#D4AF37] to-[#7C3AED] text-black hover:brightness-110 transition-all shadow-[0_0_50px_rgba(212,175,55,0.2)] text-[10px] font-black uppercase tracking-[0.2em] px-14 py-6 rounded-full border-none"
+                <Button
+                  onClick={handleSubmit}
+                  className="bg-[#25D366] text-black hover:brightness-110 transition-all shadow-[0_0_50px_rgba(37,211,102,0.25)] text-[10px] font-black uppercase tracking-[0.2em] px-14 py-6 rounded-full border-none flex items-center gap-3"
                 >
-                  Complete Registration
+                  <WhatsAppIcon className="w-4 h-4" />
+                  Send on WhatsApp
                 </Button>
               )}
             </div>
@@ -357,15 +363,28 @@ export const BookingForm = () => {
           
           <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter italic mb-6">Profile <span className="text-[#D4AF37] not-italic">Indexed.</span></h2>
           <p className="text-white/30 text-[10px] font-black uppercase tracking-[0.4em] mb-12 max-w-sm mx-auto leading-loose">
-            Your registration sequence is complete. The stage is calibrating for your debut. Welcome to OcassionOrbit.
+            WhatsApp is open with your details — hit send there and our panel picks it up. Welcome to OcassionOrbit.
           </p>
-          
-          <Button 
-            onClick={() => window.location.reload()} 
-            className="rounded-full px-12 py-7 bg-white/5 border border-white/10 hover:bg-white/10 text-[10px] font-black uppercase tracking-widest text-white transition-all shadow-none"
-          >
-            Enter The Terminal
-          </Button>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            {/* Fallback path: if the popup was blocked, this link still gets them there. */}
+            <a
+              href={performerInquiryLink(formData)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 rounded-full px-12 py-7 bg-[#25D366] text-black text-[10px] font-black uppercase tracking-widest hover:brightness-110 transition-all shadow-[0_0_40px_rgba(37,211,102,0.25)]"
+            >
+              <WhatsAppIcon className="w-4 h-4" />
+              Reopen WhatsApp
+            </a>
+
+            <Button
+              onClick={() => window.location.reload()}
+              className="rounded-full px-12 py-7 bg-white/5 border border-white/10 hover:bg-white/10 text-[10px] font-black uppercase tracking-widest text-white transition-all shadow-none"
+            >
+              Enter The Terminal
+            </Button>
+          </div>
         </motion.div>
       )}
     </div>

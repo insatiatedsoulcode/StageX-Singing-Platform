@@ -1,7 +1,9 @@
 import React from 'react';
 import { Logo } from './Logo';
 import { InstagramIcon, XIcon, DiscordIcon, YoutubeIcon } from './SocialIcons';
+import { Phone } from 'lucide-react';
 import Link from 'next/link';
+import { PHONE_DISPLAY, PHONE_TEL } from '@/lib/contact';
 
 export const Footer = () => {
   const footerLinks = {
@@ -12,15 +14,31 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#0E0E0E] border-t border-white/5 pt-24 pb-12">
+    // Translucent, so the mesh's final "settle" camera state reads behind it
+    // instead of being cut off by an opaque slab.
+    <footer className="bg-[#080810]/85 backdrop-blur-xl border-t border-white/5 pt-24 pb-12">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-2 lg:grid-cols-6 gap-12 mb-16">
           <div className="col-span-2 space-y-6">
             <Logo size="md" />
             <p className="text-white/40 max-w-sm leading-relaxed text-sm">
-              OcassionOrbit is the global standard for cinematic event orchestration and connectivity. 
+              OcassionOrbit is the global standard for cinematic event orchestration and connectivity.
               Designed for the world, built for the future of connectivity.
             </p>
+
+            <div className="space-y-3">
+              <h4 className="text-white font-black uppercase text-xs tracking-widest">Contact</h4>
+              <a
+                href={PHONE_TEL}
+                className="inline-flex items-center gap-3 text-lg font-black tracking-tight text-[#D4AF37] hover:text-white transition-colors"
+              >
+                <Phone size={18} strokeWidth={3} />
+                {PHONE_DISPLAY}
+              </a>
+              <p className="text-white/30 text-[10px] font-black uppercase tracking-[0.2em]">
+                Call or message to book an event
+              </p>
+            </div>
             <div className="flex items-center gap-4 pt-2">
               <Link href="#" className="p-2 bg-white/[0.03] border border-white/5 rounded-lg text-white/40 hover:text-[#D4AF37] hover:border-[#D4AF37]/30 transition-all group">
                 <InstagramIcon className="w-5 h-5" />

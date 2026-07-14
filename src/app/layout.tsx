@@ -3,6 +3,8 @@ import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 import { Preloader } from "@/components/Preloader";
+import { WaveformBackground } from "@/components/WaveformBackground";
+import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +39,10 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-brand-bg">
         <Preloader />
+        {/* Mounted once here, not per-page, so every route sits on the same stage. */}
+        <WaveformBackground />
         {children}
+        <WhatsAppFloat />
       </body>
     </html>
   );

@@ -29,12 +29,13 @@ export const BookingModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: ()
             initial={{ opacity: 0, scale: 0.9, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 30 }}
-            className="relative w-full max-w-4xl max-h-[95vh] overflow-y-auto bg-[#0E0E0E] rounded-[2rem] shadow-[0_0_120px_rgba(255,140,105,0.1)] border border-white/5"
+            className="relative w-full max-w-4xl max-h-[95vh] overflow-y-auto bg-[#0E0E0E] rounded-[2rem] shadow-[0_0_120px_rgba(124,58,237,0.15)] border border-white/5"
           >
             {/* Close Button */}
             <button
               onClick={handleClose}
-              className="absolute top-8 right-8 p-4 text-white/20 hover:text-[#FF8C69] transition-all z-50 bg-white/5 rounded-full hover:bg-[#FF8C69]/10 group"
+              aria-label="Close booking form"
+              className="absolute top-8 right-8 p-4 text-white/30 hover:text-brand-gold transition-all z-50 bg-white/5 rounded-full hover:bg-brand-gold/10 group"
             >
               <X size={20} className="group-hover:rotate-90 transition-transform duration-300" />
             </button>

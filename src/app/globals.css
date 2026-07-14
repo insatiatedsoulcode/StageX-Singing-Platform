@@ -1,29 +1,40 @@
 @import "tailwindcss";
 
 @theme {
+  /* ---- Core palette -------------------------------------------------- */
+  /* One purple, one gold, one background. Everything else derives from these. */
   --color-brand-bg: #050810;
-  --color-brand-purple: #8B5CF6;
+  --color-brand-purple: #7C3AED;
+  --color-brand-purple-deep: #5B21B6;
   --color-brand-purple-light: #C084FC;
   --color-brand-gold: #D4AF37;
   --color-brand-gold-muted: #B8860B;
-  
-  /* Cinematic Stage - Premium Palette */
-  --color-brand-coral: #FF8C69;
-  --color-brand-coral-muted: #F1815F;
+
+  /* ---- Surfaces ------------------------------------------------------ */
   --color-brand-bg-deep: #0E0E0E;
   --color-brand-surface-low: #131313;
   --color-brand-surface-high: #20201F;
   --color-brand-progress-track: #262626;
-  
+
   --color-glass-white: rgba(255, 255, 255, 0.05);
-  --color-glass-purple: rgba(123, 44, 191, 0.1);
-  
+  --color-glass-purple: rgba(124, 58, 237, 0.1);
+
+  /* ---- Type ---------------------------------------------------------- */
   --font-serif: var(--font-playfair);
-  --font-sans: var(--font-inter);
-  
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* ---- Motion -------------------------------------------------------- */
   --animate-glow: glow 4s ease-in-out infinite alternate;
   --animate-pulse-live: pulse-live 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  
+  --animate-spin-slow: spin-slow 12s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-ping-slow: ping-slow 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+
+  @keyframes ping-slow {
+    75%, 100% { transform: scale(1.6); opacity: 0; }
+  }
+
   @keyframes glow {
     from { opacity: 0.5; filter: blur(50px); }
     to { opacity: 0.8; filter: blur(80px); }
@@ -33,19 +44,49 @@
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: .5; transform: scale(1.2); }
   }
+
+  @keyframes spin-slow {
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
 }
 
 :root {
-  --background: #0F0717;
+  --background: #050810;
   --foreground: #ffffff;
+
+  /* Reused by the canvas background so the scene and the CSS never drift apart. */
+  --scene-near: 124 58 237;
+  --scene-far: 212 175 55;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), system-ui;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Anything interactive gets a visible keyboard ring — the site is dark, so a
+   default browser outline is nearly invisible against it. */
+:focus-visible {
+  outline: 2px solid var(--color-brand-gold);
+  outline-offset: 3px;
+  border-radius: 0.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 @layer utilities {
@@ -56,7 +97,17 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
   }
-  
+
+  /* Sits directly over the animated mesh, so it needs more body than .glass —
+     otherwise the moving wireframe reads straight through the text. */
+  .glass-solid {
+    background-color: rgba(10, 12, 24, 0.72);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.5);
+  }
+
   .glass-card {
     background-color: rgba(255, 255, 255, 0.02);
     backdrop-filter: blur(20px);
@@ -65,28 +116,63 @@ body {
     border-radius: 1.5rem;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   .glass-card:hover {
-    border-color: rgba(123, 44, 191, 0.3);
+    border-color: color-mix(in srgb, var(--color-brand-purple) 30%, transparent);
     background-color: rgba(255, 255, 255, 0.05);
     transform: translateY(-4px) scale(1.01);
-    box-shadow: 0 12px 40px -10px rgba(0,0,0,0.6), 0 0 20px rgba(123, 44, 191, 0.15);
+    box-shadow:
+      0 12px 40px -10px rgba(0, 0, 0, 0.6),
+      0 0 20px color-mix(in srgb, var(--color-brand-purple) 15%, transparent);
   }
-  
+
   .neon-glow-purple {
-    box-shadow: 0 0 20px rgba(123, 44, 191, 0.4);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--color-brand-purple) 40%, transparent);
   }
 
   .neon-glow-gold {
-    box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 0 25px color-mix(in srgb, var(--color-brand-gold) 30%, transparent);
   }
 
   .text-glow {
-    text-shadow: 0 0 15px rgba(123, 44, 191, 0.5);
+    text-shadow: 0 0 15px color-mix(in srgb, var(--color-brand-purple) 50%, transparent);
   }
 
   .text-glow-gold {
-    text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+    text-shadow: 0 0 15px color-mix(in srgb, var(--color-brand-gold) 50%, transparent);
+  }
+
+  /* The micro-label above every section heading. Was copy-pasted in 5 files. */
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    line-height: 1;
+  }
+
+  .section-label::before {
+    content: "";
+    width: 2rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.6;
+  }
+
+  /* One vertical rhythm for every section on the site. */
+  .section-shell {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
+  @media (max-width: 768px) {
+    .section-shell {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
   }
 
   .bento-grid {
