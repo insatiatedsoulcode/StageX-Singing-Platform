@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { Preloader } from "@/components/Preloader";
 import { WaveformBackground } from "@/components/WaveformBackground";
+import { RibbonSweep } from "@/components/RibbonSweep";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 
 const geistSans = Geist({
@@ -41,6 +42,8 @@ export default function RootLayout({
         <Preloader />
         {/* Mounted once here, not per-page, so every route sits on the same stage. */}
         <WaveformBackground />
+        {/* Replaces the footer: sweeps in once the reader reaches the bottom. */}
+        <RibbonSweep />
         {children}
         <WhatsAppFloat />
       </body>

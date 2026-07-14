@@ -7,7 +7,6 @@ import { TrustSection } from '@/components/TrustSection';
 import { HowItWorks } from '@/components/HowItWorks';
 import { AppExperience } from '@/components/AppExperience';
 import { CTASection } from '@/components/CTASection';
-import { Footer } from '@/components/Footer';
 import { SocialHub } from '@/components/SocialHub';
 import { BookingModal } from '@/components/BookingModal';
 
@@ -33,7 +32,8 @@ export default function Home() {
         <CTASection onBookingClick={() => setIsBookingOpen(true)} />
       </main>
 
-      <Footer />
+      {/* Runway for the ribbon sweep, which the footer used to occupy. */}
+      <div className="h-[45vh]" aria-hidden="true" />
     </div>
   );
 }

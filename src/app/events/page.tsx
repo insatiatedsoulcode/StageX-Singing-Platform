@@ -2,7 +2,6 @@
 
 import React, { useMemo, useState } from 'react';
 import { Navbar } from '@/components/Navbar';
-import { Footer } from '@/components/Footer';
 import { ArtistCard } from '@/components/ArtistCard';
 import { motion } from 'framer-motion';
 import { Search } from 'lucide-react';
@@ -142,7 +141,8 @@ export default function EventsPage() {
         </div>
       </main>
 
-      <Footer />
+      {/* Runway for the ribbon sweep, which the footer used to occupy. */}
+      <div className="h-[45vh]" aria-hidden="true" />
     </div>
   );
 }

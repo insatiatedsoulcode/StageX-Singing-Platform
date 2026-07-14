@@ -1,7 +1,6 @@
 import React from 'react';
 import { Phone } from 'lucide-react';
 import { Navbar } from '@/components/Navbar';
-import { Footer } from '@/components/Footer';
 import { BookingForm } from '@/components/BookingForm';
 import { WhatsAppIcon } from '@/components/SocialIcons';
 import { BOOKING_INQUIRY, PHONE_DISPLAY, PHONE_TEL, whatsappLink } from '@/lib/contact';
@@ -57,7 +56,8 @@ export default function BookingPage() {
         </div>
       </main>
 
-      <Footer />
+      {/* Runway for the ribbon sweep, which the footer used to occupy. */}
+      <div className="h-[45vh]" aria-hidden="true" />
     </div>
   );
 }
